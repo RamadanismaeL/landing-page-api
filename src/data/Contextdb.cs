@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using landing_page_api.src.data.Maps;
 using landing_page_api.src.models;
 using Microsoft.EntityFrameworkCore;
 /**
@@ -17,6 +18,7 @@ namespace landing_page_api.src.data
         {
             try
             {
+                model.ApplyConfiguration(new ClientMap());
                 base.OnModelCreating(model);
             }
             catch(Exception error)
