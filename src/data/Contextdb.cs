@@ -10,8 +10,10 @@ using Microsoft.EntityFrameworkCore;
 */
 namespace landing_page_api.src.data
 {
-    public class Contextdb(DbContextOptions<Contextdb> options) : DbContext(options)
+    public class Contextdb : DbContext
     {
+        public Contextdb(DbContextOptions<Contextdb> options) : base(options)
+        {}
         public required DbSet<ClientModel> Clients { get; set; }
 
         protected override void OnModelCreating(ModelBuilder model)

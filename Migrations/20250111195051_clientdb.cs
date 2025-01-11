@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace landing_page_api.Migrations
 {
     /// <inheritdoc />
-    public partial class dataClientdb : Migration
+    public partial class clientdb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -17,6 +17,7 @@ namespace landing_page_api.src.controllers
         private readonly IClientConfig _clientConfig = clientConfig;
         private readonly ILogger<ClientController> _logger = logger;
 
+        [Route("/api/client/create")]
         [HttpPost]
         public async Task<ActionResult<ClientModel>> Create([FromBody] ClientModel clientModel)
         {
@@ -33,6 +34,7 @@ namespace landing_page_api.src.controllers
             }
         }
 
+        [Route("/api/client/readAll")]
         [HttpGet]
         public async Task<ActionResult<List<ClientModel>>> ReadAll()
         {

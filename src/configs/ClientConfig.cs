@@ -13,6 +13,7 @@ namespace landing_page_api.src.configs
 
         public async Task<ClientModel> Create(ClientModel clientModel)
         {
+            clientModel.DateRegister = DateTime.Now;
             await _contextdb.Clients.AddAsync( clientModel );
             await _contextdb.SaveChangesAsync();
             return clientModel;
