@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/landing-page-api.props" />
+</Project>
