@@ -17,6 +17,16 @@ Console.WriteLine($"user: {username}\npassword: {password}\nport: {port}\nserver
 string? connect = $"server={server}; port={port}; database=dbLandingPage; user={username}; password={password}; Persist Security Info=false; Connect Timeout=300";
 
 builder.Services.AddDbContextPool<Contextdb>(ram => ram.UseMySql(connect, ServerVersion.AutoDetect(connect)));
+
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowAngularApp", policy => {
+        policy.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddScoped<IClientConfig, ClientConfig>();
 
 var app = builder.Build();
@@ -25,6 +35,7 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+app.UseCors("AllowAngularApp");
 
 app.UseHttpsRedirection();
 app.MapControllers();
