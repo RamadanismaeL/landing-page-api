@@ -12,8 +12,8 @@ using landing_page_api.src.data;
 namespace landing_page_api.Migrations
 {
     [DbContext(typeof(Contextdb))]
-    [Migration("20250111195051_clientdb")]
-    partial class clientdb
+    [Migration("20250111201525_ClientDbMigration")]
+    partial class ClientDbMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
